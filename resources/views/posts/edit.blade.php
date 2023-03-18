@@ -1,11 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
-    <body>
-        <h1 class="title">編集画面</h1>
+<x-app-layout>
+    <x-slot name="header">
+        編集画面
+    </x-app-layout>
         <div class="content">
             <form action="/posts/{{ $post->id }}" method="POST">
                 @csrf
@@ -21,5 +17,4 @@
                 <input type="submit" value="保存">
             </form>
         </div>
-    </body>
-</html>
+</x-app-layout>
