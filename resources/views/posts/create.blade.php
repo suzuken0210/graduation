@@ -39,6 +39,7 @@
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
+                
             </div>
             <input type="submit" value="保存"/>
         </form>

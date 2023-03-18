@@ -39,4 +39,5 @@
             {{ $posts->links() }}
         </div>
         
+        
 </x-app-layout>
