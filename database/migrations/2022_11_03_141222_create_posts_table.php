@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->string('body', 200);
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->string('route', 50)->nullable();
+            $table->string('area', 100)->nullable();
+            $table->string('contact_address1')->nullable();
+            $table->string('contact_address2')->nullable();
+            $table->string('hobby')->nullable();
+            $table->string('message')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
