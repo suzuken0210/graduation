@@ -1,7 +1,9 @@
+
 <x-app-layout>
     <x-slot name="header">
         チーム開発会へようこそ！
     </x-slot>
+
         <h2>投稿一覧画面</h2>
         <a href='/posts/create'>新規投稿</a>
         <div>
@@ -10,6 +12,25 @@
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
+                    
+                    <p>
+                        タイトル：<a href="/posts/{{ $post->id }}">{{ $post->route }}</a>
+                    </p>
+                    
+                    <p>
+                        タイトル：<a href="/posts/{{ $post->id }}">{{ $post->area }}</a>
+                    </p>
+                    
+                    <p>
+                        タイトル：<a href="/posts/{{ $post->id }}">{{ $post->image }}</a>
+                    </p>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
                 </div>
             @endforeach

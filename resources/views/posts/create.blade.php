@@ -10,11 +10,28 @@
                 <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
                 <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
+            
+            
+            
             <div>
-                <h2>本文</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                <h2>進路</h2>
+                <textarea name="post[route]" placeholder="～～大学">{{ old('post.route') }}</textarea>
+                <p class="route__error" style="color:red">{{ $errors->first('post.route') }}</p>
             </div>
+            
+            <div>
+                <h2>居住地域</h2>
+                <textarea name="post[area]" placeholder="～～県">{{ old('post.area') }}</textarea>
+                <p class="area__error" style="color:red">{{ $errors->first('post.area') }}</p>
+            </div>
+            
+            <div>
+                <h2>趣味</h2>
+                <textarea name="post[hobby]" placeholder="ランニング、読書">{{ old('post.hobby') }}</textarea>
+                <p class="hobby__error" style="color:red">{{ $errors->first('post.hobby') }}</p>
+            </div>
+            
+            
             <div>
                 <h2>カテゴリー</h2>
                 <select name="post[category_id]">
