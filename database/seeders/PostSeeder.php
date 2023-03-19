@@ -17,25 +17,49 @@ class PostSeeder extends Seeder
     public function run()
     {
         DB::table('posts')->insert([
-            'title' => 'チーム開発会って？',
-            'body' => 'チームで協力して一つの成果物を作るイベントです！メンバー全員で助け合いましょう！',
-            'category_id' => 1,
+            'user_id' => 1,
+            'route' => '経済学部',
+            'area'=>'大阪',
+            'contact_address1'=>'~電話番号~',
+            'hobby'=>'テトリス',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('posts')->insert([
-            'title' => '役割分担',
-            'body' => 'これはborderという、cssでつけることができる枠線です！'.PHP_EOL.'太さの指定や形など色々指定できるので、気になった方はコードを覗いてみたり、調べてみたりしましょう！'.PHP_EOL.'また、このプロジェクト内ではインラインCSSという、HTML内に書く簡易的なCSSを使用しています！こちらも気になった方は見てみてください！',
-            'category_id' => 2,
+            'user_id' => 2,
+            'area'=>'東京',
+            'contact_address1'=>'~メールアドレス~',
+            'hobby'=>'旅行',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'route' => '商学部',
+            'hobby'=>'読書',
+            'message'=>'ヤッホー',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('posts')->insert([
+            'user_id' => 4,
+            'area'=>'アメリカ',
+            'contact_address1'=>'~Instagram~',
+            'hobby'=>'ピアノ',
+            'message'=>'こんばんは',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('posts')->insert([
-            'title' => 'この枠線みたいなやつって何？',
-            'body' => '開発を進める際は、役割分担をすると効率的に開発をすることができます！'.PHP_EOL.'具',
-            'category_id' => 2,
+            'user_id' => 5,
+            'route' => '環境系',
+            'area'=>'東京',
+            'contact_address1'=>'~電話番号~',
+            'hobby'=>'色々',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
