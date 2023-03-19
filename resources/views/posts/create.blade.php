@@ -4,12 +4,9 @@
     </x-slot>
         <h2>投稿作成</h2>
         <form action="/posts" method="POST">
+            <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
-            <div>
-                <h2>タイトル</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
-            </div>
+            
             
             
             
@@ -31,15 +28,20 @@
                 <p class="hobby__error" style="color:red">{{ $errors->first('post.hobby') }}</p>
             </div>
             
-            
             <div>
-                <h2>カテゴリー</h2>
-                <select name="post[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+                <h2>id</h2>
+                <textarea name="post[user_id]" placeholder="">{{ old('post.user_id') }}</textarea>
+                <p class="user_id__error" style="color:red">{{ $errors->first('post.user_id') }}</p>
             </div>
+            
+            
+            
+            
+            
+            <div class="image">
+                <input type="file" name="image">
+            </div>
+            
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
