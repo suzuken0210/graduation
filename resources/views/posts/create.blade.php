@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        チーム開発会へようこそ！
+        Graduationへようこそ！
     </x-slot>
+    <div class="mx-28">
         <h2>投稿作成</h2>
         <form action="/posts" method="POST">
             <form action="/posts" method="POST" enctype="multipart/form-data">
@@ -47,5 +48,5 @@
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
-        
+    </div>
  </x-app-layout>
