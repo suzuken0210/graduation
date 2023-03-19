@@ -13,13 +13,13 @@
     </div>
 
     </x-slot>
-
+    
         <h2>投稿一覧画面</h2>
         <a href='/create'>新規投稿</a>
         <div>
             @foreach ($posts as $post)
+            
                 <div style='border:solid 1px; margin-bottom: 10px;'>
-                    
                     
                     <p>
                         進路：<a href="/posts/{{ $post->id }}">{{ $post->route }}</a>
@@ -37,15 +37,9 @@
                         id：<a href="/posts/{{ $post->id }}">{{ $post->user_id }}</a>
                     </p>
                     
-                    
-                    
-                    
-                    
-                    
                 </div>
             @endforeach
         </div>
-        
-        
+    
         
 </x-app-layout>
