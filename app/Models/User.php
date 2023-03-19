@@ -42,15 +42,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    //postに対するリレーション
+    public function post()
+    {
+        return $this->hasOne(Post::class);
+    }
+    
     //自分をフォローしている人のデータを取ってくる
     public function follwers()
     {
-        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
+        return $this->belongsToMany(User::class, 'follows', 'followers_id', 'followees_id');
     }
     
     //自分がフォローしている側のデータを取ってくる
     public function followees()
     {
-        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+        return $this->belongsToMany(User::class, 'follows', 'followees_id', 'followers_id');
     }
+    
+    
 }

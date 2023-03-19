@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use Cloudinary;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+        $posts = Post::whereIn('user_id',Auth::user()->followees()->pluck('id'))->latest()->get();
+        return view('posts/index')->with(['posts' => $posts]);
     }
 
     public function show(Post $post)
