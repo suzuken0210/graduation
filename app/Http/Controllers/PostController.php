@@ -12,7 +12,8 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+        $posts = Post::whereIn('user_id',Auth::user()->followees()->pluck('id'))->latest()->paginate(5);
+        return view('posts/index')->with(['posts' => $posts]);
     }
 
     public function show(Post $post)
@@ -67,7 +68,7 @@ class PostController extends Controller
         /* キーワードから検索処理 */
         $keyword = $request->input('keyword');
         if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
-            $posts=$post->where('title', 'LIKE', "%{$keyword}%")->get();
+            $posts=$post->where('id', 'LIKE', "%{$keyword}%")->get();
 
         }
 
