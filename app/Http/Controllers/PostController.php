@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Cloudinary;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -74,7 +75,14 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $posts]);
 
     }
-
-
+    
+    //フォロー機能
+    public function follow(User $user)
+    {
+        //フォローする側の
+        $followee=auth()->user();
+        $followee->followees()->attach($user->id);
+        return redirect('/');
+    }
     
 }
