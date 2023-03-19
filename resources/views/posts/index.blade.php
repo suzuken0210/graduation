@@ -22,6 +22,7 @@
             
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     
+
                     <p>
                         進路：<a href="/posts/{{ $post->id }}">{{ $post->route }}</a>
                     </p>
@@ -31,17 +32,31 @@
                     </p>
                     
                     <p>
-                        趣味：<a href="/posts/{{ $post->id }}">{{ $post->image }}</a>
+                        趣味：<a href="/posts/{{ $post->id }}">{{ $post->hobby }}</a>
                     </p>
                     
                     <p>
-                        id：<a href="/posts/{{ $post->id }}">{{ $post->user_id }}</a>
+                        message：<a href="/posts/{{ $post->id }}">{{ $post->message }}</a>
+                    </p>
+                    
+                    <p>
+                        連絡先：<a href="/posts/{{ $post->id }}">{{ $post->contact_address1 }}</a>
+                    </p>
+                    
+                    <p>
+                        id：<a href="/posts/{{ $post->id }}">{{ $post->id }}</a>
+                    </p>
+                    
+                    <p>
+                        user_id：<a href="/posts/{{ $post->user_id }}">{{ $post->user_id }}</a>
                     </p>
                     
                 </div>
             @endforeach
         </div>
-  </div>      
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
         
         
 </x-app-layout>

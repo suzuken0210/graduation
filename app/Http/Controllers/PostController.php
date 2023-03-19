@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        $posts = Post::whereIn('user_id',Auth::user()->followees()->pluck('id'))->latest()->get();
+        $posts = Post::whereIn('user_id',Auth::user()->followees()->pluck('id'))->latest()->paginate(5);
         return view('posts/index')->with(['posts' => $posts]);
     }
 
@@ -45,6 +45,7 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
+        $post = Post::where('user_id' , Auth::id())->first();
         return view('posts/edit')->with(['post' => $post]);
     }
 
