@@ -1,7 +1,7 @@
 
 <x-app-layout>
     <x-slot name="header">
-        チーム開発会へようこそ！
+        Graduationへようこそ！
         <!-- 検索機能ここから -->
     <div>
         <form action="/search"method="GET">
@@ -13,8 +13,9 @@
     </div>
 
     </x-slot>
-    
-        <h2>投稿一覧画面</h2>
+<div class="mx-28">
+        <h2 style="width: 400px; margin: auto;">投稿一覧画面</h2>
+        
         <a href='/create'>新規投稿</a>
         <div>
             @foreach ($posts as $post)
@@ -40,6 +41,7 @@
                 </div>
             @endforeach
         </div>
-    
+  </div>      
+        
         
 </x-app-layout>
