@@ -42,5 +42,23 @@ class PostController extends Controller
 
         return redirect('/posts/' . $post->id);
     }
+    
+    public function search(Request $request,Post $post)
+    {
+
+         /* テーブルから全てのレコードを取得する */
+           
+
+
+        /* キーワードから検索処理 */
+        $keyword = $request->input('keyword');
+        if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
+            $posts=$post->where('title', 'LIKE', "%{$keyword}%")->get();
+
+        }
+
+        return view('posts/index')->with(['posts' => $posts]);
+
+    }
 
 }
