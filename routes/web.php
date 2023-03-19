@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -29,9 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::get('/create', [PostController::class, 'create'])->name('create');
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
-    Route::get('/posts/create', [PostController::class, 'create']); 
-    Route::post('/posts', [PostController::class, 'store']); 
-    Route::get('/posts/{post}', [PostController::class, 'show']);
+    Route::get('/search', [PostController::class, 'search'])->name('crud.index');
 });
 
 require __DIR__.'/auth.php';

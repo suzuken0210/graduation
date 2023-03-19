@@ -29,9 +29,11 @@
             </div>
             
             <div>
+
                 <h2>id</h2>
                 <textarea name="post[user_id]" placeholder="">{{ old('post.user_id') }}</textarea>
                 <p class="user_id__error" style="color:red">{{ $errors->first('post.user_id') }}</p>
+
             </div>
             
             
@@ -45,4 +47,5 @@
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
+        
  </x-app-layout>

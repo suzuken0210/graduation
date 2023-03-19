@@ -16,8 +16,10 @@
             
         </div>
         <div>
+            
 
             <a href="/">戻る</a>
         </div>
+        
  
 </x-app-layout>
