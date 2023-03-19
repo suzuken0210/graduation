@@ -1,7 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
         チーム開発会へようこそ！
+        <!-- 検索機能ここから -->
+    <div>
+        <form action="/search"method="GET">
+            @csrf
+
+                <input type="text" name="keyword">
+                <input type="submit" value="検索">
+        </form>
+    </div>
+
     </x-slot>
+    
         <h2>投稿一覧画面</h2>
         <a href='/posts/create'>新規投稿</a>
         <div>
@@ -14,8 +25,6 @@
                 </div>
             @endforeach
         </div>
-        <div>
-            {{ $posts->links() }}
-        </div>
+        
         
 </x-app-layout>

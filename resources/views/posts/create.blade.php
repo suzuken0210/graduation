@@ -26,4 +26,5 @@
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
+        
  </x-app-layout>
