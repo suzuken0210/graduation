@@ -22,7 +22,11 @@
             
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     
-
+                    <p>
+                        進路：<a href="/posts/{{ $post->id }}">{{ $post->user->name }}</a>
+                    </p>
+            
+            
                     <p>
                         進路：<a href="/posts/{{ $post->id }}">{{ $post->route }}</a>
                     </p>
