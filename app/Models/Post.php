@@ -14,6 +14,8 @@ class Post extends Model
         'route',
         'area',
         'hobby',
+        'message',
+        'contact_address1',
         'category_id',
     ];
 

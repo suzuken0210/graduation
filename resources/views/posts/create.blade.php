@@ -29,7 +29,13 @@
             </div>
             
             <div>
-
+                <h2>メッセージ</h2>
+                <textarea name="post[message]" placeholder="ありがとうございました">{{ old('post.message') }}</textarea>
+                <p class="message__error" style="color:red">{{ $errors->first('post.message') }}</p>
+            </div>
+            
+        
+            <div>
                 <h2>id</h2>
                 <textarea name="post[user_id]" placeholder="">{{ old('post.user_id') }}</textarea>
                 <p class="user_id__error" style="color:red">{{ $errors->first('post.user_id') }}</p>

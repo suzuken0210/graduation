@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use Cloudinary;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -43,6 +44,7 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
+        $post = Post::where('user_id' , Auth::id())->first();
         return view('posts/edit')->with(['post' => $post]);
     }
 
