@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Cloudinary;
 
 class PostController extends Controller
 {
@@ -21,6 +22,7 @@ class PostController extends Controller
     public function create(Category $category)
     {
         return view('posts/create')->with(['categories' => $category->get()]);
+        return view('/posts/create');
     }
 
     public function store(Post $post, Request $request)
@@ -28,6 +30,15 @@ class PostController extends Controller
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
+        
+        
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        dd($image_url);  //画像のURLを画面に表示
+
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
+        
     }
 
     public function edit(Post $post)
@@ -43,6 +54,7 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+
     public function search(Request $request,Post $post)
     {
 
@@ -61,4 +73,6 @@ class PostController extends Controller
 
     }
 
+
+    
 }
