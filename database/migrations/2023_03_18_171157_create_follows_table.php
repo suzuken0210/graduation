@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('follows', function (Blueprint $table) {
-            $table->foreignId('follwers_id')->constrained('users');   //参照先のテーブル名を
+            $table->foreignId('followers_id')->constrained('users');   //参照先のテーブル名を
             $table->foreignId('followees_id')->constrained('users');    //constrainedに記載
-            $table->primary(['follwers_id', 'followees_id']);
+            $table->primary(['followers_id', 'followees_id']);
         });
     }
 
